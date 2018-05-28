@@ -11,16 +11,12 @@ class SpaceInvaders(arcade.Window):
         arcade.set_background_color(arcade.color.AMAZON)
 
     def setup(self):
-        # Set up your game here
         pass
 
     def on_draw(self):
-        """ Render the screen. """
         arcade.start_render()
-        # Your drawing code goes here
 
     def update(self, delta_time):
-        """ All the logic to move, and the game logic goes here. """
         pass
 
 
