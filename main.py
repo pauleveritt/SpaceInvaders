@@ -35,9 +35,9 @@ class SpaceInvaders(arcade.Window):
         self.dropped_row = False
 
         # Load the movement sounds
-        self.movement_sounds = {}
+        self.movement_sounds = []
         for r in range(4):
-            self.movement_sounds[r] = arcade.load_sound(f'sounds/{r}.wav'),
+            self.movement_sounds.append(arcade.load_sound(f'sounds/{r}.wav'))
         self.current_sound = 0
 
     def setup(self):
@@ -84,12 +84,15 @@ class SpaceInvaders(arcade.Window):
         # On each movement, play sound 0, then 1, through 4,
         # back to 0
 
-        arcade.play_sound(self.movement_sounds[0])
+        arcade.play_sound(self.movement_sounds[self.current_sound])
+        self.current_sound += 1
+        if self.current_sound == 4:
+            self.current_sound = 0
 
     def update(self, delta_time):
         self.frames += 1
 
-        if not self.frames % 60:
+        if not self.frames % 50:
             # See if any of the enemies hit the edge
             self.drop_and_reverse()
             self.play_movement_sound()
