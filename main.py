@@ -93,9 +93,11 @@ class SpaceInvaders(arcade.Window):
         self.frames += 1
 
         if not self.frames % 50:
+            # Play the appropriate sound
+            self.play_movement_sound()
+
             # See if any of the enemies hit the edge
             self.drop_and_reverse()
-            self.play_movement_sound()
 
         self.enemy_sprite_list.update()
         self.enemy_sprite_list.update_animation()
