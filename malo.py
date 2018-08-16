@@ -1,13 +1,14 @@
 import random
 import arcade
 
-SCREEN_HEIGHT = 476
-SCREEN_WIDTH = 640
-SHIP_SCALE = .5
+SCREEN_HEIGHT = 756
+SCREEN_WIDTH = 1280
+SHIP_SCALE = 1
 ENEMY_SCALE = .2
-VELOCITIES = [-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+VELOCITIES = list(range(-10,10))
+VELOCITIES.remove(0)
 EXPLOSION_TEXTURE_COUNT = 271
-
+ENEMIES_COUNT = 25
 
 class Ship(arcade.Sprite):
     def __init__(self):
@@ -59,7 +60,7 @@ class Explosion(arcade.Sprite):
             self.kill()
 
 
-for i in range(EXPLOSION_TEXTURE_COUNT):
+for i in range(0,EXPLOSION_TEXTURE_COUNT,2):
     texture = arcade.load_texture(f"images/explosion/explosion{i:04d}.png")
     Explosion.explosion_textures.append(texture)
 
@@ -80,7 +81,7 @@ class MyGame(arcade.Window):
         self.enemies = arcade.SpriteList()
         self.explosions = arcade.SpriteList()
         self.ship = Ship()
-        for i in range(500):
+        for i in range(ENEMIES_COUNT):
             x = random.randint(100, SCREEN_WIDTH - 100)
             y = random.randint(100, SCREEN_HEIGHT - 100)
             enemy = Enemy(x, y)
