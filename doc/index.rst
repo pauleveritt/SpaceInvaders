@@ -15,6 +15,9 @@ Ship Moves/Rotates With Keys
 
 .. code-block:: python
 
+    def update(self, delta_time):
+        self.ship.update()
+
     def on_key_press(self, symbol, modifiers):
         if symbol == arcade.key.LEFT:
             self.ship.change_angle = 3

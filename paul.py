@@ -14,6 +14,7 @@ class Ship(arcade.Sprite):
         super().__init__("images/ship.png", SHIP_SCALE)
         self.center_x = 50
         self.center_y = 50
+        self.angle = 0
 
 
 class Enemy(arcade.Sprite):
@@ -41,6 +42,7 @@ class Enemy(arcade.Sprite):
 
         if self.top > SCREEN_HEIGHT:
             self.change_y *= -1
+
 
 
 class Explosion(arcade.Sprite):
@@ -83,6 +85,7 @@ class MyGame(arcade.Window):
         arcade.set_background_color(arcade.color.BEAVER)
         self.set_mouse_visible(False)
         self.background = arcade.load_texture("images/background.jpg")
+        self.explosion_sound = arcade.sound.load_sound("sounds/shipexplosion.wav")
 
     def setup(self):
         self.score = 0
@@ -106,6 +109,7 @@ class MyGame(arcade.Window):
     def update(self, delta_time: float):
         self.enemies.update()
         self.explosions.update()
+        self.ship.update()
         hits = arcade.check_for_collision_with_list(self.ship, self.enemies)
         for hit in hits:
             explosion = Explosion()
@@ -114,10 +118,24 @@ class MyGame(arcade.Window):
             self.explosions.append(explosion)
             hit.kill()
             self.score += 1
+            arcade.sound.play_sound(self.explosion_sound)
 
     def on_mouse_motion(self, x: float, y: float, dx: float, dy: float):
         self.ship.center_x = x
         self.ship.center_y = y
+
+    def on_key_press(self, symbol, modifiers):
+        if symbol == arcade.key.LEFT:
+            self.ship.change_angle = 3
+        elif symbol == arcade.key.RIGHT:
+            self.ship.change_angle = -3
+
+    def on_key_release(self, symbol, modifiers):
+        """ Called whenever a key is released. """
+        if symbol == arcade.key.LEFT:
+            self.ship.change_angle = 0
+        elif symbol == arcade.key.RIGHT:
+            self.ship.change_angle = 0
 
 
 def main():
