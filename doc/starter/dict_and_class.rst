@@ -141,7 +141,7 @@ acts as the constructor:
 Thanks to the constructor, you can't "construct" an instance without
 a name:
 
-.. code-block::
+.. code-block:: python
 
     sister = Person()
 
