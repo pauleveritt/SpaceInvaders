@@ -38,7 +38,7 @@ representing what they say:
 
 .. code-block:: python
 
-    print(42)
+    print(True)
 
 Learned
 -------

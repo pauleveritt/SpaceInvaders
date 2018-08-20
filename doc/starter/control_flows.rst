@@ -22,15 +22,15 @@ Maybe we want to print a special greeting if it's you.
 .. code-block:: python
 
     greeting = 'Hello'
-    name = 'Malo'
+    name = 'Mary'
 
-    if name == 'Malo':
-        print('Welcome back Malo')
+    if name == 'Mary':
+        print('Welcome back Mary')
     else:
         print(greeting + ' ' + name)
 
 Remember *expressions* from the previous page? We used the expression
-``name == 'Malo'`` as the test. In this case, that expression produces
+``name == 'Mary'`` as the test. In this case, that expression produces
 the value ``True``.
 
 Learned
@@ -61,14 +61,14 @@ Let's make a function ``greet`` which will produce the string to print.
     greeting = 'Hello'
 
     def greet(name):
-        if name == 'Malo':
-            result = 'Welcome back Malo'
+        if name == 'Mary':
+            result = 'Welcome back Mary'
         else:
             result = greeting + ' ' + name
 
         return result
 
-    msg = greet('Malo')
+    msg = greet('Mary')
     print(msg)
 
 Let's analyze this:
@@ -81,7 +81,7 @@ Let's analyze this:
 
 - A return value
 
-- We *call* the function with an *argument* of ``Malo``
+- We *call* the function with an *argument* of ``Mary``
 
 - We store the return value in a *variable* named ``msg``
 
@@ -109,8 +109,8 @@ Remember to change the argument we pass to ``greet``:
     greetings = ['Hello', 'Howdy', 'Wassup']
 
     def greet(name):
-        if name == 'Malo':
-            result = 'Welcome back Malo'
+        if name == 'Mary':
+            result = 'Welcome back Mary'
         else:
             result = greetings[2] + ' ' + name
 
@@ -144,13 +144,15 @@ use by *importing* code from the standard library.
 Let's import the ``choice`` function from the ``random`` module in
 the standard library, then select a random greeting.
 
+.. code-block:: python
+
     from random import choice
 
     greetings = ['Hello', 'Howdy', 'Wassup']
 
     def greet(name):
-        if name == 'Malo':
-            result = 'Welcome back Malo'
+        if name == 'Mary':
+            result = 'Welcome back Mary'
         else:
             result = choice(greetings) + ' ' + name
 
