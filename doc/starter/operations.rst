@@ -15,6 +15,7 @@ do this the long way:
 
     x = 1
     x = x + 1
+    print(x)
 
 Python provides an inline operator:
 
