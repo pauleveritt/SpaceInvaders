@@ -13,3 +13,6 @@ We're going to make a ball bounce.
 
     import_and_main
     simple_screen
+    draw_ball
+    game_class
+    move_ball
