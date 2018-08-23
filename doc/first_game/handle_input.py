@@ -8,10 +8,10 @@ PLAYER_COLOR = arcade.color.BUBBLES
 
 
 class Player:
-    def __init__(self, x, y, velocity, radius, color):
+    def __init__(self, x, y, radius, color):
         self.x = x
         self.y = y
-        self.delta_x = velocity
+        self.delta_x = 0
         self.delta_y = 0
 
         # Size and rotation
@@ -23,6 +23,7 @@ class Player:
 
     def move(self):
         self.x += self.delta_x
+        self.y += self.delta_y
 
 
 class MyGame(arcade.Window):
@@ -37,7 +38,7 @@ class MyGame(arcade.Window):
         # Start in the center
         x = SCREEN_WIDTH // 2
         y = SCREEN_HEIGHT // 2
-        self.player = Player(x, y, MOVEMENT_SPEED, CIRCLE_RADIUS, PLAYER_COLOR)
+        self.player = Player(x, y, CIRCLE_RADIUS, PLAYER_COLOR)
 
     def on_draw(self):
         arcade.start_render()
@@ -45,6 +46,22 @@ class MyGame(arcade.Window):
 
     def update(self, delta_time):
         self.player.move()
+
+    def on_key_press(self, key, modifiers):
+        if key == arcade.key.UP:
+            self.player.delta_y = MOVEMENT_SPEED
+        elif key == arcade.key.DOWN:
+            self.player.delta_y = -MOVEMENT_SPEED
+        elif key == arcade.key.LEFT:
+            self.player.delta_x = -MOVEMENT_SPEED
+        elif key == arcade.key.RIGHT:
+            self.player.delta_x = MOVEMENT_SPEED
+
+    def on_key_release(self, key, modifiers):
+        if key == arcade.key.UP or key == arcade.key.DOWN:
+            self.player.delta_y = 0
+        elif key == arcade.key.LEFT or key == arcade.key.RIGHT:
+            self.player.delta_x = 0
 
 
 def main():
