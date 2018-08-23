@@ -16,3 +16,9 @@ We're going to make a ball bounce.
     draw_ball
     game_class
     move_ball
+    speed
+    player
+    handle_input
+    detect_edge
+    sprite
+    play_sound

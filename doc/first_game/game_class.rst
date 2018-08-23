@@ -33,16 +33,12 @@ Test
 
 #. What class does our game inherit from (meaning, its superclass)?
 
-#. Why do we call ``super().__init()`` in our dunder-init?
+#. Why do we call ``super().__init__()`` in our dunder-init?
 
 #. What are the three methods in our ``MyGame`` class?
 
-#. Why does ``update`` have ``self`` as a first argument?
+#. Why does ``on_draw`` have ``self`` as a first argument?
 
 #. What are all the possible arguments you can supply to
    ``arcade.Window.__init__``? (Hint: click on it and hit
    ``Ctrl-Q``.
-
-#. Put the cursor on the ``__init__`` in ``super().__init__``
-   and hit ``Ctrl-B``. This navigates you to the code for the
-   Arcade Window's constructor.

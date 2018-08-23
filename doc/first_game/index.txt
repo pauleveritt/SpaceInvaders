@@ -1,6 +1,10 @@
 
 - Keypress to change direction
 
+- "Player"
+
 - Detect edge and change direction
 
 - Sprite
+
+- Play sound
