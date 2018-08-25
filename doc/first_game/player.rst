@@ -10,7 +10,7 @@ We'll also start putting our ``setup`` method to work.
 
 .. literalinclude:: player.py
     :linenos:
-    :emphasize-lines: 7, 10-25, 29, 33, 37-40, 44, 47
+    :emphasize-lines: 7, 10-25, 29, 36-39, 43, 46
 
 Analysis
 ========
@@ -44,8 +44,8 @@ Test
 #. Use a different policy for the starting position of the player,
    instead of "middle of the screen".
 
-#. What happens if the window is resized? Does the starting position
-   change?
+#. What happens if the window is resized? Is the starting position
+   still centered?
 
 #. Make the player move to the left instead of to the right.
 

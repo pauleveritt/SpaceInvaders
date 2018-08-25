@@ -25,6 +25,22 @@ class Player:
         self.x += self.delta_x
         self.y += self.delta_y
 
+        # See if we've gone beyond the border. If so, reset our position
+        # back to the border.
+        if self.x < self.radius:  # Left
+            self.x = self.radius
+        if self.x > SCREEN_WIDTH - self.radius:  # Right
+            self.x = SCREEN_WIDTH - self.radius
+
+        # Move up/down
+        self.y += self.delta_y
+
+        # Check top and bottom boundaries
+        if self.y < self.radius:  # Bottom
+            self.y = self.radius
+        if self.y > SCREEN_HEIGHT - self.radius:  # Top
+            self.y = SCREEN_HEIGHT - self.radius
+
 
 class MyGame(arcade.Window):
     player: Player

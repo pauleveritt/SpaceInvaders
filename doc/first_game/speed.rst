@@ -21,7 +21,7 @@ Test
 ====
 
 #. Why does the ball move on the screen? Explain the process of what is
-   happening as the program runs
+   happening as the program runs.
 
 #. Print the ``delta_time`` to see how the value changes on each frame
    update.
