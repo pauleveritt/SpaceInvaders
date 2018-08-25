@@ -4,7 +4,7 @@ Sound
 
 When we hit the edge, let's play an explosion.
 
-.. literalinclude:: sound.py
+.. literalinclude:: explosion.py
     :linenos:
     :emphasize-lines: 7, 14, 26, 30, 34, 38
 

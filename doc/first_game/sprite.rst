@@ -9,9 +9,8 @@ motion:
 
 - Bounce off edge
 
-.. literalinclude:: game05.py
+.. literalinclude:: sprite.py
     :linenos:
-    :emphasize-lines:
 
 Analysis
 ========
