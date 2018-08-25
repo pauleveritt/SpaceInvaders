@@ -21,4 +21,4 @@ We're going to make a ball bounce.
     handle_input
     detect_edge
     sprite
-    play_sound
+    explosion
