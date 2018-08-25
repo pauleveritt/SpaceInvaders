@@ -4,12 +4,14 @@ SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
 MOVEMENT_SPEED = 3
 SPRITE_SCALING = 0.5
+EXPLOSION = "../../sounds/shipexplosion.wav"
 
 
 class Player(arcade.Sprite):
     def __init__(self, filename, sprite_scaling):
         super().__init__(filename, sprite_scaling)
 
+        self.explosion = arcade.sound.load_sound(EXPLOSION)
         self.center_x = SCREEN_WIDTH // 2
         self.center_y = SCREEN_HEIGHT // 2
         self.change_x = 0
@@ -21,15 +23,19 @@ class Player(arcade.Sprite):
 
         if self.left < 0:
             self.change_x *= -1
+            arcade.sound.play_sound(self.explosion)
 
         if self.right > SCREEN_WIDTH:
             self.change_x *= -1
+            arcade.sound.play_sound(self.explosion)
 
         if self.bottom < 0:
             self.change_y *= -1
+            arcade.sound.play_sound(self.explosion)
 
         if self.top > SCREEN_HEIGHT:
             self.change_y *= -1
+            arcade.sound.play_sound(self.explosion)
 
 
 class MyGame(arcade.Window):
